@@ -21,7 +21,7 @@ export default function App() {
 
   // Fetch available languages from backend
   useEffect(() => {
-    fetch("http://localhost:5000/api/languages")
+    fetch("https://mitra-ai-travel-assistant.onrender.com/api/languages")
       .then((res) => res.json())
       .then((data) => setLanguages(data))
       .catch((err) => console.error("Error loading languages:", err));
@@ -38,7 +38,7 @@ export default function App() {
     setLoading(true);
     setBooking(null);
     try {
-      const res = await fetch("http://localhost:5000/api/book", {
+      const res = await fetch("https://mitra-ai-travel-assistant.onrender.com/api/book", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -57,7 +57,7 @@ export default function App() {
     setTranslated("");
     if (!text || !language) return alert("Enter text and select a language");
     try {
-      const res = await fetch("http://localhost:5000/api/translate", {
+      const res = await fetch("https://mitra-ai-travel-assistant.onrender.com/api/translate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text, language }),
